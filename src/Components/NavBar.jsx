@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 
@@ -43,7 +43,7 @@ const handleLogOut = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link to={'/'}><img src="https://i.ibb.co/ZTf2CpX/Job-Seekrer.png " className="w-32"/></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

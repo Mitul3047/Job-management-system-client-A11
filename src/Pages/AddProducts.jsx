@@ -35,7 +35,7 @@ const AddProducts = () => {
         }
         console.log(postedjobs);
 
-        
+
         axios.post('http://localhost:7000/postedjobs', postedjobs, {
             headers: {
               'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ const AddProducts = () => {
                 <div>
                     <label htmlFor="jobCategory">Job Category</label>
                     <select name="jobCategory" id="jobCategory" className="input input-accent w-full">
-                        <option value="webDevelopment">Web Development</option>
+                        <option value="WebDevelopment">Web Development</option>
                         <option value="graphicDesign">Graphic Design</option>
                         <option value="digitalMarketing">Digital Marketing</option>
                     </select>

@@ -8,6 +8,7 @@ const NavBar = () => {
     const navLinks =
         <>
             <li> <NavLink to={'/'}>Home</NavLink></li>
+            <li> <NavLink to={'/add-products'}>Add Job</NavLink></li>
             {user ? '' : <li><NavLink to={'/log-in'}>Login</NavLink></li>}
 
 

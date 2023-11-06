@@ -101,7 +101,7 @@ const JobDetails = () => {
                         />
                         <input
                             type="email"
-                            name="providerEmail"
+                            name="bidderEmail"
                             defaultValue={user?.email}
                             className="input input-accent w-full"
                             placeholder="Email"
@@ -117,7 +117,7 @@ const JobDetails = () => {
                         </div>
                         <input
                             type="email"
-                            name="bidderEmail"
+                            name="providerEmail"
                             defaultValue={email}
                             className="input input-accent w-full"
                             placeholder="Email"

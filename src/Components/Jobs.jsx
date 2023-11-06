@@ -94,7 +94,7 @@ const Jobs = () => {
                             <div className='grid grid-cols-3 gap-4'>
                                 {webDevelopmentJobs.map(job => (
                                     <div key={job._id}>
-                                        <div className='border p-6 space-y-2 rounded bg-cyan-100  shadow-xl '>
+                                        <div className='border p-6 space-y-2 rounded bg-cyan-100  sha '>
                                             <h2>job Title: <span className='font-semibold'>{job.jobTitle}</span></h2>
                                             <h2>Deadline: {job.deadline}</h2>
                                             <h2>Price range: ${job.maxPrice}-${job.minPrice}</h2>

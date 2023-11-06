@@ -97,7 +97,7 @@ const AddProducts = () => {
                 </div>
                 <div>
                     <label htmlFor="jobCategory">Job Category</label>
-                    <select name="jobCategory" id="jobCategory" className="input input-accent w-full">
+                    <select name="jobCategory" id="jobCategory"  className="input input-accent w-full">
                         <option value="WebDevelopment">Web Development</option>
                         <option value="graphicDesign">Graphic Design</option>
                         <option value="digitalMarketing">Digital Marketing</option>

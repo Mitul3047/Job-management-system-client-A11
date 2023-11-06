@@ -7,8 +7,8 @@ import Swal from 'sweetalert2';
 
 const JobDetails = () => {
     const job = useLoaderData()
+    console.log({job});
     const { user } = useContext(AuthContext)
-    // eslint-disable-next-line no-unused-vars
     const { _id, email, jobTitle, description, jobCategory, deadline, maxPrice, minPrice } = job
     const isBiddingDisabled = user?.email === email;
     const handleAddBid = e => {

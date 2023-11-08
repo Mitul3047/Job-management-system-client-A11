@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -125,6 +126,11 @@ const Register = () => {
     // }
     return (
         <div>
+              <Helmet>
+                <title>
+                    JobSeeker | Register
+                </title>
+            </Helmet>
                <div>
          
          <p className=" text-center text-purple-500">{error}</p>

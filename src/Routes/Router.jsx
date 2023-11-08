@@ -11,12 +11,15 @@ import PrivateRoute from './PrivateRoute';
 import PostedJobs from '../Pages/PostedJobs';
 import UpdatePostedJobs from '../Pages/UpdatePostedJobs';
 import BidRequest from '../Pages/BidRequest';
+import AllJobs from '../Pages/AllJobs';
+import Error from '../Pages/Error';
 
 
 const Router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement:<Error></Error>,
         children: [
             {
                 path: '/',
@@ -57,6 +60,10 @@ const Router = createBrowserRouter([
                 path: '/bid-request',
                 element: <PrivateRoute><BidRequest></BidRequest></PrivateRoute>,
                
+            },
+            {
+                path:"/all-jobs",
+                element:<AllJobs></AllJobs>
             }
         ]
     }

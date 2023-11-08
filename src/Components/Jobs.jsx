@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { motion } from "framer-motion";
-
+import { AiOutlineArrowRight } from 'react-icons/ai';
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [webDevelopmentJobs, setWebDevelopmentJobs] = useState([]);
@@ -38,7 +38,7 @@ const Jobs = () => {
 
 
   return (
-    <div className='p-28'>
+    <div className='lg:p-28'>
       <Tabs>
         <TabList>
           <Tab>Web development</Tab>
@@ -48,7 +48,7 @@ const Jobs = () => {
 
         <div className='w-[90%] p-4 mx-auto min-h-screen'>
           <TabPanel>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {webDevelopmentJobs.map(job => (
                 <motion.div
                   key={job._id}
@@ -69,7 +69,7 @@ const Jobs = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {digitalMarketingJobs.map(job => (
                 <motion.div
                   key={job._id}
@@ -90,7 +90,7 @@ const Jobs = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
               {graphicDesignJobs.map(job => (
                 <motion.div
                   key={job._id}
@@ -113,6 +113,17 @@ const Jobs = () => {
 
         </div>
       </Tabs>
+
+      <div className='flex justify-end mb-10 '>
+      <Link to={"/all-jobs"}>
+      <div className='flex justify-between items-center gap-2 cursor-pointer text-cyan-600 p-2 hover:outline rounded-lg   hover:outline-1'>
+          <span className='btn-link text-cyan-600 '>ALL JOBS</span><AiOutlineArrowRight/>
+        </div>
+      </Link>
+      </div>
+  
+        <img  className='min-h-screen max-w-6 rounded-lg' src="https://i.ibb.co/31N0KWJ/ESL-Conversational-and-Vocabulary-Building-Educational-Presentation-in-Blue-and-Orange-Realistic-Sty.png" alt="" />
+   
     </div>
   );
 };

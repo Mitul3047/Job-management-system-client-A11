@@ -3,6 +3,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 // import Swal from 'sweetalert2';
 import axios from 'axios';
 import { ProgressBar } from "react-step-progress-bar";
+import { Helmet } from 'react-helmet-async';
 
 const BidRequest = () => {
     const [bids, setBids] = useState([]);
@@ -113,6 +114,11 @@ const BidRequest = () => {
 
     return (
         <div className='min-h-screen'>
+              <Helmet>
+                <title>
+                    JobSeeker | Bid Request
+                </title>
+            </Helmet>
             {/* Render the filtered bids */}
             <h2 className='text-center text-4xl my-10 text-cyan-600'>My Bids</h2>
             {bids.length === 0 ? (

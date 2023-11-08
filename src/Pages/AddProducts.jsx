@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddProducts = () => {
     const navigate = useNavigate();
@@ -68,6 +69,12 @@ const AddProducts = () => {
 
     return (
         <div className="md:w-1/2 w-full p-4 mx-auto">
+
+            <Helmet>
+                <title>
+                    JobSeeker | Add Product
+                </title>
+            </Helmet>
             <h2 className="text-center text-3xl">Add Your Job Here</h2>
             <form className="space-y-5" onSubmit={handleAddJob}>
                 <div>

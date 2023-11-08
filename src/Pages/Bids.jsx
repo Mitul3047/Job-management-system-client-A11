@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 
 const Bids = () => {
     const [bids, setBids] = useState([]);
@@ -89,6 +90,11 @@ const Bids = () => {
 
     return (
         <div className='min-h-screen'>
+              <Helmet>
+                <title>
+                    JobSeeker | My Bids
+                </title>
+            </Helmet>
             {/* Render the filtered bids */}
             <h2 className='text-center text-4xl my-10 text-cyan-600'>My Bids</h2>
             {bids.length === 0 ? (

@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const UpdatePostedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -50,6 +51,11 @@ const UpdatePostedJobs = () => {
 
   return (
     <div className="md:w-1/2 w-full p-4 mx-auto">
+        <Helmet>
+                <title>
+                    JobSeeker | Update Product
+                </title>
+            </Helmet>
       <h2 className="text-center text-3xl">Update Your Job Here</h2>
       <form className="space-y-5" onSubmit={handleUpdate}>
         <div>

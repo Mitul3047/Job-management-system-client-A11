@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Helmet } from 'react-helmet-async';
 // import { Link } from 'react-router-dom';
 
 const PostedJobs = () => {
@@ -72,6 +73,11 @@ const PostedJobs = () => {
 
   return (
     <div className='min-h-screen'>
+        <Helmet>
+                <title>
+                    JobSeeker | My Posted Jobs
+                </title>
+            </Helmet>
       {/* Render the filtered postedJobs */}
       <h2 className='text-center text-4xl my-10 text-cyan-600'>My Posted Jobs</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-[80%] mx-auto' >

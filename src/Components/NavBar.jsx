@@ -10,7 +10,7 @@ const NavBar = () => {
             <li> <NavLink to={'/'}>Home</NavLink></li>
             <li> <NavLink to={'/add-products'}>Add Job</NavLink></li>
             <li> <NavLink to={'/my-bids'}>My Bids</NavLink></li>
-            <li> <NavLink to={'/posted-jobs'}>Posted Jobs</NavLink></li>
+            <li> <NavLink to={'/posted-jobs'}>My Posted Jobs</NavLink></li>
             <li> <NavLink to={'/bid-request'}>Bid Request</NavLink></li>
             {user ? '' : <li><NavLink to={'/log-in'}>Login</NavLink></li>}
 
@@ -47,7 +47,7 @@ const handleLogOut = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <Link to={'/'}><img src="https://i.ibb.co/ZTf2CpX/Job-Seekrer.png " className="w-32"/></Link>
+                <Link to={'/'}><img src="https://i.ibb.co/x6FVJQK/Green-Tones-Catering-Logo-1.png " className="w-32"/></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

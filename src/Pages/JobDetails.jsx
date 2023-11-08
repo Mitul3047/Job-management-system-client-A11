@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const JobDetails = () => {
     const job = useLoaderData()
@@ -69,6 +70,11 @@ const JobDetails = () => {
 
     return (
         <div className='min-h-screen flex flex-col justify-center bg-cyan-100 w-full md:w-2/3 mx-auto rounded-lg shadow-xl p-4 lg:p-36'>
+              <Helmet>
+                <title>
+                    JobSeeker | Job Details
+                </title>
+            </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 <div className='mb-9 col-span-2'>
                     <h3 className='text-2xl font-semibold '>{jobTitle}</h3>

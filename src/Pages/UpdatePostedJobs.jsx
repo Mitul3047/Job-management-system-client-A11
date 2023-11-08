@@ -30,7 +30,7 @@ const UpdatePostedJobs = () => {
     };
 
     axios
-      .put(`http://localhost:7000/postedjobs/${postedJob._id}`, updatedPostedJob, {
+      .put(`https://job-management-api.vercel.app/postedjobs/${postedJob._id}`, updatedPostedJob, {
         headers: {
           "Content-Type": "application/json",
         },

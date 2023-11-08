@@ -38,7 +38,7 @@ const AddProducts = () => {
         }
         console.log(postedjobs);
 
-        axios.post('http://localhost:7000/postedjobs', postedjobs, {
+        axios.post('https://job-management-api.vercel.app/postedjobs', postedjobs, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

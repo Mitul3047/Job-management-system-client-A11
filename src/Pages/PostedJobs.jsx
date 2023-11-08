@@ -15,7 +15,7 @@ const PostedJobs = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:7000/postedjobs/', {withCredentials: true});
+            const response = await axios.get('https://job-management-api.vercel.app/postedjobs/', {withCredentials: true});
             if (response.status !== 200) {
                 throw new Error('Network response was not ok');
             }
@@ -46,7 +46,7 @@ const PostedJobs = () => {
       showLoaderOnConfirm: true, // Display loading indicator
 
       preConfirm: () => {
-        return fetch(`http://localhost:7000/postedjobs/${id}`, {
+        return fetch(`https://job-management-api.vercel.app/postedjobs/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

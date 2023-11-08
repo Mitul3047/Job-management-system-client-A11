@@ -13,7 +13,7 @@ const Jobs = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:7000/postedjobs/');
+        const response = await fetch('https://job-management-api.vercel.app/postedjobs/');
         if (response.ok) {
           const data = await response.json();
 

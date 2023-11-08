@@ -41,7 +41,7 @@ const JobDetails = () => {
         console.log(bid);
 
 
-        axios.post('http://localhost:7000/bid', bid, {
+        axios.post('https://job-management-api.vercel.app/bid', bid, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -100,20 +100,27 @@ const JobDetails = () => {
                 }
                 <div tabIndex={0} className="dropdown-content z-[1] w-full menu p-2 shadow bg-base-100 rounded-box ">
                     <form action="" onSubmit={handleAddBid} className='space-y-4'>
-                        <input
+                    <div className='flex justify-between items-center'>
+                            <label htmlFor="" className='mr-3'>My bids: </label>
+                            <input
                             type="number"
                             name="bidding"
                             className="input input-accent w-full"
                             placeholder="Enter You Bidding Amount"
                         />
-                        <input
+                        </div>
+
+                        <div className='flex justify-between items-center'>
+                            <label htmlFor="" className='mr-3'>My Email: </label>
+                            <input
                             type="email"
-                            name="bidderEmail"
+                            name="providerEmail"
                             defaultValue={user?.email}
                             className="input input-accent w-full"
                             placeholder="Email"
                             readOnly
                         />
+                        </div>
                         <div className='flex justify-between items-center'>
                             <label htmlFor="" className='mr-3'>Deadline: </label>
                             <input
@@ -122,7 +129,9 @@ const JobDetails = () => {
                                 className="input input-accent w-full"
                             />
                         </div>
-                        <input
+                        <div className='flex justify-between items-center'>
+                            <label htmlFor="" className='mr-3'>Provider Email: </label>
+                            <input
                             type="email"
                             name="providerEmail"
                             defaultValue={email}
@@ -130,6 +139,8 @@ const JobDetails = () => {
                             placeholder="Email"
                             readOnly
                         />
+                        </div>
+
 
                         <div className='flex mt-4'>
                             {/* if there is a button in form, it will close the modal */}

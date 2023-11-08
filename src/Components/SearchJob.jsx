@@ -7,7 +7,7 @@
 
 //   useEffect(() => {
 //     // Fetch the API data when the component mounts
-//     axios.get('http://localhost:7000/postedjobs')
+//     axios.get('https://job-management-api.vercel.app/postedjobs')
 //       .then((response) => {
 //         setJobs(response.data);
 //       })

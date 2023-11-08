@@ -11,7 +11,7 @@ const Bids = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:7000/bid',{withCredentials : true});
+            const response = await axios.get('https://job-management-api.vercel.app/bid',{withCredentials : true});
             if (response.status !== 200) {
               throw new Error('Network response was not ok');
             }
@@ -40,7 +40,7 @@ const Bids = () => {
             showLoaderOnConfirm: true, // Display loading indicator
 
             preConfirm: () => {
-                return fetch(`http://localhost:7000/bid/${id}`, {
+                return fetch(`https://job-management-api.vercel.app/bid/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -67,7 +67,7 @@ const Bids = () => {
 
     const handleBiddingComplete = id => {
 
-        fetch(`http://localhost:7000/bid/${id}`, {
+        fetch(`https://job-management-api.vercel.app/bid/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -12,7 +12,7 @@ const BidRequest = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:7000/bid', { withCredentials: true }); // Use Axios for the GET request
+                const response = await axios.get('https://job-management-api.vercel.app/bid', { withCredentials: true }); // Use Axios for the GET request
                 if (response.status !== 200) {
                     throw new Error('Network response was not ok');
                 }
@@ -41,7 +41,7 @@ const BidRequest = () => {
     //         showLoaderOnConfirm: true, // Display loading indicator
 
     //         preConfirm: () => {
-    //             return fetch(`http://localhost:7000/bid/${id}`, {
+    //             return fetch(`https://job-management-api.vercel.app/bid/${id}`, {
     //                 method: 'DELETE'
     //             })
     //                 .then(res => res.json())
@@ -68,7 +68,7 @@ const BidRequest = () => {
 
     const handleBiddingAccept = id => {
 
-        fetch(`http://localhost:7000/bid/${id}`, {
+        fetch(`https://job-management-api.vercel.app/bid/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -90,7 +90,7 @@ const BidRequest = () => {
     }
     const handleBiddingReject = id => {
 
-        fetch(`http://localhost:7000/bid/${id}`, {
+        fetch(`https://job-management-api.vercel.app/bid/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -71,7 +71,7 @@ const handleLogOut = () => {
                         
                         </a>
                       </li>
-                      <li><a>Settings</a></li>
+                      {/* <li><a>Settings</a></li> */}
                       <li onClick={handleLogOut}><a>Logout</a></li>
                     </ul>
                   </div>

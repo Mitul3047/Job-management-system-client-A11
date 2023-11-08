@@ -40,7 +40,7 @@ const Router = createBrowserRouter([
             {
                 path: '/job-details/:id',
                 element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:7000/postedjobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://job-management-api.vercel.app/postedjobs/${params.id}`)
 
             },
             {
@@ -54,7 +54,7 @@ const Router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoute><UpdatePostedJobs /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:7000/postedjobs/${params.id}`)
+                loader: ({ params }) => fetch(`https://job-management-api.vercel.app/postedjobs/${params.id}`)
             },
             {
                 path: '/bid-request',

@@ -167,6 +167,17 @@ const Register = () => {
                              </div>
                              <div className="mt-5">
                              <label className="label">
+                                    <span className="label-text">Photo</span>
+                                </label>
+                                 <input
+                                     type="text"
+                                     name="photo"
+                                     placeholder="Photo Url"
+                                     required
+                                     className="input rounded input-accent w-full" />
+                             </div>
+                             <div className="mt-5">
+                             <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
                                  <input

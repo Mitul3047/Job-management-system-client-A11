@@ -44,7 +44,7 @@ const Login = () => {
 
         // 
 
-        axios.post('http://localhost:7000/jwt', user, { withCredentials: true })
+        axios.post('https://job-management-api.vercel.app/jwt', user, { withCredentials: true })
           .then(r => {
             console.log(r.data);
             if (r.data.success) {

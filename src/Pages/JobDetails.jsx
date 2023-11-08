@@ -72,7 +72,7 @@ const JobDetails = () => {
         <div className='min-h-screen flex flex-col justify-center bg-cyan-100 w-full md:w-2/3 mx-auto rounded-lg shadow-xl p-4 lg:p-36'>
               <Helmet>
                 <title>
-                    JobSeeker | Job Details
+                    JobSeeker | Job
                 </title>
             </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
@@ -100,27 +100,20 @@ const JobDetails = () => {
                 }
                 <div tabIndex={0} className="dropdown-content z-[1] w-full menu p-2 shadow bg-base-100 rounded-box ">
                     <form action="" onSubmit={handleAddBid} className='space-y-4'>
-                    <div className='flex justify-between items-center'>
-                            <label htmlFor="" className='mr-3'>My bids: </label>
-                            <input
+                        <input
                             type="number"
                             name="bidding"
                             className="input input-accent w-full"
                             placeholder="Enter You Bidding Amount"
                         />
-                        </div>
-
-                        <div className='flex justify-between items-center'>
-                            <label htmlFor="" className='mr-3'>My Email: </label>
-                            <input
+                        <input
                             type="email"
-                            name="providerEmail"
+                            name="bidderEmail"
                             defaultValue={user?.email}
                             className="input input-accent w-full"
                             placeholder="Email"
                             readOnly
                         />
-                        </div>
                         <div className='flex justify-between items-center'>
                             <label htmlFor="" className='mr-3'>Deadline: </label>
                             <input
@@ -129,9 +122,7 @@ const JobDetails = () => {
                                 className="input input-accent w-full"
                             />
                         </div>
-                        <div className='flex justify-between items-center'>
-                            <label htmlFor="" className='mr-3'>Provider Email: </label>
-                            <input
+                        <input
                             type="email"
                             name="providerEmail"
                             defaultValue={email}
@@ -139,8 +130,6 @@ const JobDetails = () => {
                             placeholder="Email"
                             readOnly
                         />
-                        </div>
-
 
                         <div className='flex mt-4'>
                             {/* if there is a button in form, it will close the modal */}

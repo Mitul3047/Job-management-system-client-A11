@@ -9,7 +9,7 @@ const Banner = () => {
       };
     return (
         <div  className='min-h-screen flex py-28 md:py-20 lg:py28 px-8 md:px-12' style={containerStyle}>
-            <h1 className='lg:text-6xl md:text-3xl font-semibold'>We are here to help
+            <h1 className='text-6xl  font-semibold'>We are here to help
             <br /> you find 
             <br /><span className='text-cyan-400'>your dream</span></h1>
             

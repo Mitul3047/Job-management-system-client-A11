@@ -64,6 +64,29 @@ const Bids = () => {
         });
     };
 
+    const handleBiddingComplete = id => {
+
+        fetch(`http://localhost:7000/bid/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'Complete' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = bids.filter(bid => bid._id !== id);
+                    const updated = bids.find(bid => bid._id === id);
+                    updated.status = 'Complete'
+                    const newBookings = [updated, ...remaining];
+                    setBids(newBookings);
+                }
+            })
+    }
+
     return (
         <div className='min-h-screen'>
             {/* Render the filtered bids */}
@@ -81,6 +104,9 @@ const Bids = () => {
                             <p>Your Deadline: {bid.deadline}</p>
                             <p onClick={() => handleDelete(bid._id)} className=' font-semibold flex justify-end cursor-pointer  text-red-500'>X</p>
                             <p>status: {bid.status}</p>
+                            {
+                                bid.status === "Accept" ? <button className='btn btn-secondary w-full text-white' onClick={() => handleBiddingComplete(bid._id)}>Complete</button> : ""
+                            }
                         </div>
                     ))}
                 </div>

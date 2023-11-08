@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 // import Swal from 'sweetalert2';
 import axios from 'axios';
+import { ProgressBar } from "react-step-progress-bar";
 
 const BidRequest = () => {
     const [bids, setBids] = useState([]);
@@ -65,7 +66,7 @@ const BidRequest = () => {
     // };
 
     const handleBiddingAccept = id => {
-        
+
         fetch(`http://localhost:7000/bid/${id}`, {
             method: 'PATCH',
             headers: {
@@ -87,7 +88,7 @@ const BidRequest = () => {
             })
     }
     const handleBiddingReject = id => {
-        
+
         fetch(`http://localhost:7000/bid/${id}`, {
             method: 'PATCH',
             headers: {
@@ -127,10 +128,33 @@ const BidRequest = () => {
                             <p>Offerd Deadline: {bid.deadline}</p>
                             <p>Status: {bid.status}</p>
                             {/* <p onClick={() => handleDelete(bid._id)} className=' font-semibold flex justify-end cursor-pointer  text-red-500'>X</p> */}
-                            <div className='flex gap-4 '>
-                                <button className='btn btn-success flex-grow text-white' onClick={()=> handleBiddingAccept(bid._id)}>Accept</button>
-                                <button className='btn btn-error flex-grow text-white' onClick={()=> handleBiddingReject(bid._id)}>Decline</button>
-                            </div>
+                            {
+                                bid.status === "Accept" || bid.status === "Reject" || bid.status === "Complete" ? (
+                                    <div className=' gap-4 hidden'>
+                                        <button className='btn btn-success flex-grow text-white' onClick={() => handleBiddingAccept(bid._id)}>Accept</button>
+                                        <button className='btn btn-error flex-grow text-white' onClick={() => handleBiddingReject(bid._id)}>Decline</button>
+                                    </div>
+                                ) : (
+                                    <div className='flex gap-4'>
+                                        <button className='btn btn-success flex-grow text-white' onClick={() => handleBiddingAccept(bid._id)}>Accept</button>
+                                        <button className='btn btn-error flex-grow text-white' onClick={() => handleBiddingReject(bid._id)}>Decline</button>
+                                    </div>
+                                )
+                            }
+                           {
+                           bid.status === "Accept" ? (
+                            <div>
+                                {/* <h1>Hi</h1> */}
+                                <ProgressBar
+                                    percent={10}
+                                    filledBackground="linear-gradient(to right, #30c213, #347214)"
+                                    height={10}
+                                    borderRadius={5}
+                                />
+                                </div>
+                            ) : ""
+                            }
+
                         </div>
                     ))}
                 </div>

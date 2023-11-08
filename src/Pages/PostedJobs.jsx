@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 // import { Link } from 'react-router-dom';
 
 const PostedJobs = () => {
@@ -11,26 +12,25 @@ const PostedJobs = () => {
   // const { _id } = postedJobs
 
   useEffect(() => {
-    // Use async/await to fetch the data
     const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:7000/postedjobs/');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
+        try {
+            const response = await axios.get('http://localhost:7000/postedjobs/', {withCredentials: true});
+            if (response.status !== 200) {
+                throw new Error('Network response was not ok');
+            }
+            const data = response.data;
 
-        // Filter the data where postedJobderEmail is "shehabchowdhury10@gmail.com"
-        const filteredpostedJobs = data.filter((postedJob) => postedJob.email === user.email);
-        setPostedJobs(filteredpostedJobs);
-      } catch (error) {
-        console.error('Error fetching data: ', error);
-      }
+            // Filter the data where postedJobderEmail is "shehabchowdhury10@gmail.com"
+            const filteredpostedJobs = data.filter((postedJob) => postedJob.email === user.email);
+            setPostedJobs(filteredpostedJobs);
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+        }
     };
 
-    fetchData(); // Call the async function to fetch data
+    fetchData();
 
-  }, [user.email]); // Add user.email as a dependency to re-fetch data when it changes
+}, [user.email]);// Add user.email as a dependency to re-fetch data when it changes
 
   const handleDelete = (id) => {
     Swal.fire({

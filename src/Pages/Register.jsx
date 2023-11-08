@@ -128,7 +128,7 @@ const Register = () => {
                <div>
          
          <p className=" text-center text-purple-500">{error}</p>
-         <div className="w-full lg:w-1/2 my-10 mx-auto py-11 px-12 text-white font-bold bg-gradient-to-r from-purple-500 to-pink-500 " >
+         <div className="w-full lg:w-1/2 my-10 mx-auto py-11 px-12   bg-cyan-100 " >
                          <h2 className="text-2xl text-center mb-4">Register</h2>
                          <p className="mb-4 text-lg text-center">
                              Create your account.
@@ -146,7 +146,7 @@ const Register = () => {
                                      name="name"
                                      placeholder="Name"
                                      required
-                                     className="input rounded  w-full" />
+                                     className="input rounded input-accent  w-full" />
                              </div>
                              <div className="mt-5">
                              <label className="label">
@@ -157,7 +157,7 @@ const Register = () => {
                                      name="email"
                                      placeholder="Email"
                                      required
-                                     className="input rounded  w-full" />
+                                     className="input rounded input-accent w-full" />
                              </div>
                              <div className="mt-5">
                              <label className="label">
@@ -168,7 +168,7 @@ const Register = () => {
                                      name="password"
                                      placeholder="Password"
                                      required
-                                     className="input rounded  w-full" />
+                                     className="input rounded  input-accent w-full" />
                              </div>
                              <div className="mt-5">
                                  <input
@@ -176,7 +176,7 @@ const Register = () => {
                                      name="confirmPassword"
                                      placeholder="Confirm Password"
                                      required
-                                     className="input rounded  w-full" />
+                                     className="input rounded input-accent  w-full" />
                              </div>
                              {/* <div className="mt-5">
                                  <input
@@ -189,9 +189,9 @@ const Register = () => {
                                  </span>
                              </div> */}
                              <div className="mt-5">
-                                 <button className="w-full bg-gradient-to-r  from-pink-500 to-purple-500 py-3 text-center rounded text-white">Register Now</button>
+                                 <button className="w-full btn btn-accent text-white py-3 text-center rounded ">Register Now</button>
                                  <p className="text-center mt-3">Already Have an Account? <Link to="/log-in">
-                                     <span className="btn-link font-medium text-white">Login</span>
+                                     <span className="btn-link font-medium ">Login</span>
                                  </Link>
                                  </p>
                              </div>

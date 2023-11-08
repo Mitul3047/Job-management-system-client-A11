@@ -10,47 +10,54 @@ import Bids from '../Pages/Bids';
 import PrivateRoute from './PrivateRoute';
 import PostedJobs from '../Pages/PostedJobs';
 import UpdatePostedJobs from '../Pages/UpdatePostedJobs';
+import BidRequest from '../Pages/BidRequest';
+
 
 const Router = createBrowserRouter([
     {
-        path:'/',
-        element:<MainLayout></MainLayout>,
-        children:[
+        path: '/',
+        element: <MainLayout></MainLayout>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/log-in',
-                element:<LogIn></LogIn>
+                path: '/log-in',
+                element: <LogIn></LogIn>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             },
             {
-                path:'/add-products',
-                element:<AddProducts></AddProducts>
+                path: '/add-products',
+                element: <AddProducts></AddProducts>
             },
             {
-                path:'/job-details/:id',
-                element:<JobDetails></JobDetails>,
-                loader:({params}) => fetch(`http://localhost:7000/postedjobs/${params.id}`)
+                path: '/job-details/:id',
+                element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:7000/postedjobs/${params.id}`)
 
             },
             {
-                path:'/my-bids',
-                element:<PrivateRoute><Bids></Bids></PrivateRoute>
+                path: '/my-bids',
+                element: <PrivateRoute><Bids></Bids></PrivateRoute>
             },
             {
-                path:'/posted-jobs',
-                element:<PrivateRoute><PostedJobs></PostedJobs></PrivateRoute>
+                path: '/posted-jobs',
+                element: <PrivateRoute><PostedJobs></PostedJobs></PrivateRoute>
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute><UpdatePostedJobs /></PrivateRoute>,
-                loader:({params}) => fetch(`http://localhost:7000/postedjobs/${params.id}`)
-              }
+                loader: ({ params }) => fetch(`http://localhost:7000/postedjobs/${params.id}`)
+            },
+            {
+                path: '/bid-request',
+                element: <PrivateRoute><BidRequest></BidRequest></PrivateRoute>,
+               
+            }
         ]
     }
 ])

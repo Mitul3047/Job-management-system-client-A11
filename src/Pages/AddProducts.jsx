@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import {  useNavigate } from "react-router-dom";
 
 const AddProducts = () => {
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
-    const handleAddJob = e =>{
+    const handleAddJob = e => {
         e.preventDefault()
         const email = e.target.email.value;
         const jobTitle = e.target.jobTitle.value;
@@ -24,7 +26,7 @@ const AddProducts = () => {
         console.log("Max Price: ", maxPrice);
         console.log("Min Price: ", minPrice);
 
-        const postedjobs ={
+        const postedjobs = {
             email,
             jobTitle,
             description,
@@ -35,30 +37,32 @@ const AddProducts = () => {
         }
         console.log(postedjobs);
 
-
         axios.post('http://localhost:7000/postedjobs', postedjobs, {
+            withCredentials: true,
             headers: {
-              'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             }
-          })
+        })
             .then(response => {
-              console.log(response.data);
-              if (response.data.insertedId) {
-                Swal.fire({
-                  icon: 'success',
-                  title: 'Job has been posted',
-                });
-              }
+                console.log(response.data);
+                if (response.data.insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Job has been posted',
+                    });
+                }
+                navigate("/posted-jobs");
+
             })
             .catch(error => {
-              console.error('Error:', error);
-              // Handle the error here
+                console.error('Error:', error);
+                // Handle the error here
             });
-         
-          
-          
-          
-          
+
+
+
+
+
 
     }
 
@@ -97,7 +101,7 @@ const AddProducts = () => {
                 </div>
                 <div>
                     <label htmlFor="jobCategory">Job Category</label>
-                    <select name="jobCategory" id="jobCategory"  className="input input-accent w-full">
+                    <select name="jobCategory" id="jobCategory" className="input input-accent w-full">
                         <option value="WebDevelopment">Web Development</option>
                         <option value="graphicDesign">Graphic Design</option>
                         <option value="digitalMarketing">Digital Marketing</option>

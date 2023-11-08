@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Bids = () => {
     const [bids, setBids] = useState([]);
@@ -8,22 +9,22 @@ const Bids = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await fetch('http://localhost:7000/bid');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                const filteredBids = data.filter((bid) => bid.bidderEmail === user.email);
-                setBids(filteredBids);
-            } catch (error) {
-                console.error('Error fetching data: ', error);
-                // Optionally display an error message to the user.
+          try {
+            const response = await axios.get('http://localhost:7000/bid',{withCredentials : true});
+            if (response.status !== 200) {
+              throw new Error('Network response was not ok');
             }
+            const data = response.data;
+            const filteredBids = data.filter((bid) => bid.bidderEmail === user.email);
+            setBids(filteredBids);
+          } catch (error) {
+            console.error('Error fetching data: ', error);
+            // Optionally display an error message to the user.
+          }
         };
-
+    
         fetchData();
-    }, [user.email]);
+      }, [user.email]);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -79,6 +80,7 @@ const Bids = () => {
                             <p>Your Bidding: {bid.bidding}</p>
                             <p>Your Deadline: {bid.deadline}</p>
                             <p onClick={() => handleDelete(bid._id)} className=' font-semibold flex justify-end cursor-pointer  text-red-500'>X</p>
+                            <p>status: {bid.status}</p>
                         </div>
                     ))}
                 </div>

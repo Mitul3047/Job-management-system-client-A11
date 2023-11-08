@@ -32,7 +32,8 @@ const JobDetails = () => {
             bidding,
             deadline,
             jobCategory,
-            jobTitle
+            jobTitle,
+            status:'pending'
 
 
         }

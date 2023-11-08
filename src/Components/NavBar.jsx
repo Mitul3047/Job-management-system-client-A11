@@ -11,6 +11,7 @@ const NavBar = () => {
             <li> <NavLink to={'/add-products'}>Add Job</NavLink></li>
             <li> <NavLink to={'/my-bids'}>My Bids</NavLink></li>
             <li> <NavLink to={'/posted-jobs'}>Posted Jobs</NavLink></li>
+            <li> <NavLink to={'/bid-request'}>Bid Request</NavLink></li>
             {user ? '' : <li><NavLink to={'/log-in'}>Login</NavLink></li>}
 
 
